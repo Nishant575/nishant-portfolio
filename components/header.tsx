@@ -47,9 +47,16 @@ export default function Header() {
               </Link>
             ))}
           </div>
-            
-        </div>
 
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 pt-4 border-t border-white/10 animate-slide-up">
