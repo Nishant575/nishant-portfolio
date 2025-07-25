@@ -47,6 +47,24 @@ export default function Header() {
               </Link>
             ))}
           </div>
+
+          {/* Theme Toggle */}
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="hidden md:block p-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
+          </button>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-xl hover:bg-white/10 transition-all duration-300"
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
             
         </div>
 
