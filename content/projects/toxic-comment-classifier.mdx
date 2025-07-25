@@ -1,0 +1,55 @@
+---
+title: Toxic Comment Classifier
+description: Developed a bidirectional LSTM-based classifier using TensorFlow/Keras to detect harmful online content with 97% accuracy, promoting safer digital environments.
+technologies: [TensorFlow, Keras, Python, NLP, LSTM]
+date: 2023-04-30
+image: /images/projects/toxic-comment-classifier.png
+slug: toxic-comment-classifier
+---
+
+## Toxic Comment Classifier
+
+Between August 2022 and April 2023, I developed a machine learning system that identifies toxic or harmful content in user-generated comments. The project aimed to support content moderation teams by flagging offensive or aggressive language with high precision.
+
+### Objective
+
+- Detect toxic comments in online forums, social platforms, and feedback forms.
+- Build a deep learning model that generalizes well across multiple platforms and comment styles.
+- Ensure high data quality and reproducibility through structured preprocessing.
+
+### Workflow
+
+#### Dataset and Preprocessing
+
+- Collected and consolidated **20,000+ comments** from public online datasets and forums.
+- Applied data cleaning techniques including stop word removal, lowercasing, lemmatization, and punctuation stripping.
+- Tokenized and padded all text sequences to a fixed length for model compatibility.
+
+#### Model Architecture
+
+- Used a **Bidirectional LSTM** model built with TensorFlow and Keras.
+- Embedded text using `Embedding` layers followed by two stacked bidirectional LSTM layers for contextual learning.
+- Added Dense layers with dropout for regularization and sigmoid activation for binary classification.
+
+#### Performance
+
+- Achieved **97% accuracy** on the validation set for classifying toxic vs. non-toxic comments.
+- Maintained strong performance on edge cases such as sarcastic toxicity and veiled insults.
+- Training pipeline included stratified sampling, early stopping, and learning rate tuning.
+
+### Tools & Stack
+
+- **TensorFlow / Keras** – for model building, training, and evaluation  
+- **Python (Pandas, NumPy)** – for data cleaning and feature engineering  
+- **NLTK / SpaCy** – for natural language preprocessing  
+- **Matplotlib / Seaborn** – for EDA and result visualization  
+
+### Skills Demonstrated
+
+- Deep learning architecture design for NLP problems  
+- Bidirectional LSTM implementation and tuning  
+- Text preprocessing pipeline development  
+- Model validation, evaluation, and optimization  
+- Building ethical AI systems for real-world moderation use cases
+
+This project helped reinforce my understanding of NLP and sequence modeling. It also highlighted the importance of responsible AI when working with content that affects people’s digital experience.

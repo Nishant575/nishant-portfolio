@@ -1,0 +1,61 @@
+---
+title: Prohibited Item Detection in Airport Baggage
+description: Built a YOLOv8-based object detection system to identify prohibited items from 7000+ labeled X-ray images, improving threat detection accuracy and reducing false positives.
+technologies: [YOLOv8, Python, OpenCV, Pandas, LabelImg]
+date: 2024-06-30
+image: /images/projects/prohibited-item-detection.png
+slug: prohibited-item-detection
+---
+
+## Prohibited Item Detection in Airport Baggage
+
+From May to June 2024, I worked on a computer vision project aimed at strengthening airport security systems by detecting prohibited items in passenger baggage. The project involved building a deep learning pipeline that could process X-ray scans and automatically flag threats with bounding boxes.
+
+### Objective
+
+- Develop an object detection model to identify restricted items in X-ray baggage images.
+- Reduce false positives while maintaining high recall to support real-world deployment.
+- Provide interpretable predictions to assist security personnel in screening.
+
+### Workflow
+
+#### Dataset
+
+- Used a dataset of over 7000 labeled X-ray images representing real-world airport baggage scans.
+- Bounding box annotations were provided for classes such as knife, gun, scissors, lighter, and tools.
+
+#### Data Preprocessing
+
+- Conducted exploratory analysis to understand class imbalance, image resolution variations, and annotation quality.
+- Applied augmentation techniques including scaling, flipping, and contrast adjustment to increase training diversity.
+- Converted all annotations into YOLO-compatible `.txt` format using `LabelImg`.
+
+#### Model Training with YOLOv8
+
+- Implemented YOLOv8 using the Ultralytics framework in Python.
+- Trained the model over multiple epochs with custom batch size and learning rate schedules.
+- Monitored metrics like mAP (mean Average Precision), confidence scores, and IOU overlap for validation.
+
+#### Results
+
+- Achieved a **30% improvement in threat identification accuracy** compared to baseline models.
+- Reduced false positives by **25%**, helping minimize unnecessary manual bag checks.
+- Model demonstrated strong localization precision and real-time inference capabilities.
+
+### Tools & Stack
+
+- **YOLOv8 (Ultralytics)** – core detection model  
+- **Python** – preprocessing, model training, evaluation  
+- **OpenCV / Matplotlib** – image visualization and augmentation  
+- **LabelImg** – annotation conversion and inspection  
+- **Pandas / NumPy** – dataset statistics and analysis  
+
+### Skills Demonstrated
+
+- Deep learning model development with real-world image data  
+- Bounding box annotation handling and augmentation  
+- Hyperparameter tuning and evaluation for object detection  
+- Communicating model performance and safety improvements  
+- Understanding trade-offs in precision vs recall in a high-risk domain
+
+This project sharpened my skills in computer vision and model optimization, while also highlighting how AI can support critical safety systems when designed carefully and tested thoroughly.

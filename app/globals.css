@@ -1,0 +1,76 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {   /* for body/secondary text */
+  --glass-bg: rgba(255, 255, 255, 0.84);
+  --glass-border: rgba(45,49,65,0.08);
+  --gradient-from: #667eea;
+  --gradient-to: #764ba2;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+}
+
+.dark body {
+  --foreground: 220 9% 98%;
+  --gradient-from: #1e293b;
+  --gradient-to: #0f172a;
+  background-color: #000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/textured-black-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  color: hsl(var(--foreground));
+}
+
+body {
+  --foreground: 220 9% 98%;
+  --gradient-from: #1e293b;
+  --gradient-to: #0f172a;
+  background-color: #000;
+  background-image: url('/images/textured-black-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  color: hsl(var(--foreground));
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-glass;
+  }
+  
+  .glass-button {
+    @apply bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 
+           transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .modern-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

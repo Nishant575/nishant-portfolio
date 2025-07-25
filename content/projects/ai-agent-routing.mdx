@@ -1,0 +1,82 @@
+---
+title: 'AI-Powered Multi-Agent Routing System'
+description: Built a real-time multi-agent AI system using LangGraph and GPT-4 to route unstructured hospital queries to the correct departments, simulating a triage desk.
+technologies: [Python, GPT-4o-mini, LangGraph, LangChain, Jupyter]
+date: 2024-12-01
+image: /images/projects/ai-routing.png
+slug: ai-agent-routing
+---
+
+## AI-Powered Multi-Agent Routing System for Northwestern Memorial Hospital
+
+As part of an advanced GenAI systems course, I developed a multi-agent AI system that mimics how hospital triage teams or call centers interpret and respond to unstructured patient inquiries. The goal was to create a real-time message routing system powered by LLMs, simulating department-level coordination in a hospital setting.
+
+### Objective
+
+- Build dedicated AI agents representing different hospital departments.
+- Use a central Operator Agent to classify the intent of incoming messages.
+- Route the message to relevant departments using a LangGraph-based agent graph.
+- Ensure the system could handle ambiguous or multi-intent messages reliably.
+
+### Implementation Overview
+
+#### Operator Agent (LLM-based)
+
+The Operator receives raw patient queries like:  
+`"I need to schedule an MRI and also ask about billing."`
+
+It then classifies the message into one or more relevant hospital departments using a custom GPT-4 prompt. The output is a clean, comma-separated list of departments such as:
+Radiology, Billing/insurance.
+
+#### Department Agents
+
+Each department agent is an LLM chain that responds only when triggered. Agents were built for:
+
+- Emergency Room  
+- Primary Care  
+- Radiology  
+- Pediatrics  
+- Cardiology  
+- Billing/Insurance  
+
+Each agent is prompted with a domain-specific template and returns a concise, relevant response.
+
+#### LangGraph Orchestration
+
+LangGraph’s `StateGraph` was used to manage agent flow:
+
+- Shared state includes message, predicted intents, and individual agent responses.
+- Conditional branching allows routing to one or more departments in parallel.
+- All paths terminate cleanly at an END node after collecting responses.
+
+#### Prompt Design & Safety
+
+- Custom `PromptTemplates` were created for each agent.
+- Prompts were structured to ensure relevance, prevent hallucinations, and maintain medical tone.
+- Outputs were parsed in structured formats to maintain control and consistency.
+
+### Testing & Performance
+
+- System was tested with 50+ realistic hospital queries.
+- Achieved **100% routing accuracy**: each query was classified to the correct departments.
+- GPT-4 returned department responses in under 1.5 seconds on average.
+
+### Tech Stack
+
+- **Python 3.11**
+- **LangGraph** – for agent routing
+- **LangChain** – for LLM chaining
+- **OpenAI GPT-4** – for intent classification and agent responses
+- **Pydantic / TypedDict** – for shared state
+- **Jupyter Notebook** – for prototyping and showcasing
+- **PromptTemplate** – for custom prompt logic
+
+### GenAI Concepts Demonstrated
+
+- Multi-agent orchestration using LLMs and state machines  
+- Real-world simulation of LLM routing in enterprise healthcare  
+- RAG-style reasoning with intent-classify-and-respond loops  
+- Parallel processing of multi-intent queries  
+- Structured output, controlled latency, and agent isolation
+
+---
