@@ -18,7 +18,7 @@ export default function Intro() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Hey, I'm{' '}
+              Hey, I&apos;m{' '}
               <span className="text-gradient">Nishant Dalvi</span>
               <span className="wave">👋</span>
             </h1>

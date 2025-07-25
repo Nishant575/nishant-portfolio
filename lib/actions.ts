@@ -2,11 +2,10 @@
 
 import { z } from 'zod'
 import { Resend } from 'resend'
-import { contactSchema, subscribeSchema } from '@/lib/schemas'
+import { contactSchema } from '@/lib/schemas'
 import ContactFormEmail from '@/emails/contact-form-email'
 
 type ContactFormInputs = z.infer<typeof contactSchema>
-type NewsletterFormInputs = z.infer<typeof subscribeSchema>
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendEmail(data: ContactFormInputs) {
@@ -38,31 +37,5 @@ export async function sendEmail(data: ContactFormInputs) {
     return { success: true }
   } catch (error) {
     return { error: String(error) }
-  }
-}
-
-export async function subscribe(data: NewsletterFormInputs) {
-  const result = subscribeSchema.safeParse(data)
-
-  if (result.error) {
-    return { error: result.error.format() }
-  }
-
-  try {
-    const { email } = result.data
-    const { data, error } = await resend.contacts.create({
-      email: email,
-      audienceId: process.env.RESEND_AUDIENCE_ID as string
-    })
-
-    if (!data || error) {
-      throw new Error('Failed to subscribe')
-    }
-
-    // TODO: Send a welcome email
-
-    return { success: true }
-  } catch (error) {
-    return {error: String(error) }
   }
 }

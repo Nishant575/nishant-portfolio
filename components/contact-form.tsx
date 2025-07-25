@@ -35,9 +35,9 @@ export default function ContactForm() {
   return (
     <div className="glass-card rounded-3xl p-8 animate-fade-in">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold mb-4 text-gradient">Let's work together</h2>
+        <h2 className="text-3xl font-bold mb-4 text-gradient">Let&apos;s work together</h2>
         <p className="text-neutral-300">
-          Have a project in mind? I'd love to hear about it. Send me a message and I'll get back to you soon.
+          Have a project in mind? I&apos;d love to hear about it. Send me a message and I&apos;ll get back to you soon.
         </p>
       </div>
 
@@ -90,7 +90,7 @@ export default function ContactForm() {
         {status === 'success' && (
           <div className="flex items-center gap-2 text-green-400 bg-green-400/10 border border-green-400/20 rounded-xl p-4">
             <CheckCircle size={20} />
-            <span>Message sent successfully! I'll get back to you soon.</span>
+            <span>Message sent successfully! I&apos;ll get back to you soon.</span>
           </div>
         )}
 
