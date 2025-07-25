@@ -12,9 +12,9 @@ export default function ExperienceList() {
         {experiences.map(exp => (
           <Link key={exp.slug} href={`/experiences/${exp.slug}`} className="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300">
             <h2 className="text-xl font-semibold mb-1">{exp.title}</h2>
-            <p className="text-neutral-400 mb-2 italic">{exp.company}</p>
-            <p className="text-neutral-500 mb-3 text-sm">{exp.date}</p>
-            <p className="text-neutral-300 text-sm line-clamp-3">{exp.description}</p>
+            <p className="text-gray-200 mb-2 italic">{exp.company}</p>
+            <p className="text-gray-300 mb-3 text-sm">{exp.date}</p>
+            <p className="text-gray-200 text-sm line-clamp-3">{exp.description}</p>
           </Link>
         ))}
       </div>
