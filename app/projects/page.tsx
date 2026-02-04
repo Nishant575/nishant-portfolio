@@ -24,7 +24,7 @@ export default async function ProjectsPage() {
             </div>
               <div className="glass-card rounded-b-2xl p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-neutral-300 mb-4 line-clamp-3">
+                <p className="text-gray-200 mb-4 line-clamp-3">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1">
